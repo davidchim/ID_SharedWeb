@@ -44,7 +44,7 @@
   </div>
   <div class="bg-gray-100 p-4">
     <el-scrollbar height="600px">
-      <el-empty description="空" v-if="accounts.length===0"/>
+      <el-empty description="空" v-if="!accounts || accounts.length===0"/>
       <div v-loading="loading" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         <IdCard
             v-for="account in accounts"
@@ -53,12 +53,15 @@
             :account="account.email"
             :password="account.password"
             :country="account.country"
+            :time="account.time"
+
         />
       </div>
     </el-scrollbar>
 
   </div>
   <Collapse></Collapse>
+  <FloatingAd></FloatingAd>
 
 </template>
 
@@ -69,6 +72,7 @@ import {ChatLineRound} from "@element-plus/icons-vue";
 import Statistic from "@/components/Statistic.vue";
 
 import Collapse from "@/components/Collapse.vue";
+import FloatingAd from "@/components/FloatingAd.vue";
 
 
 export default {
@@ -77,7 +81,8 @@ export default {
     Collapse,
     Statistic,
     ChatLineRound,
-    IdCard
+    IdCard,
+    FloatingAd
   },
   data() {
     return {

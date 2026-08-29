@@ -12,6 +12,8 @@
       <div class="mb-2">
         <p class="text-xs text-gray-600 truncate">账号: {{ account }}</p>
         <p class="text-xs text-gray-600">密码: ******</p>
+        <p class="text-xs text-gray-600">时间: {{ time }}</p>
+
       </div>
     </div>
     <div class="flex space-x-2">
@@ -111,7 +113,8 @@ const props = defineProps({
   availability: String,
   account: String,
   password: String,
-  country: true
+  country: String,
+  time: String
 })
 
 // 计算属性，根据国家名称获取对应的旗帜 emoji
